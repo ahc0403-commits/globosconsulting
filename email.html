@@ -31,7 +31,6 @@
     min-height: 100vh;
   }
 
-  /* Background pattern */
   body::before {
     content: '';
     position: fixed;
@@ -51,16 +50,9 @@
     padding: 0 20px;
   }
 
-  /* Header */
   .header {
     text-align: center;
     padding: 48px 0 12px;
-  }
-
-  .header-logo img {
-    width: 100px;
-    height: auto;
-    margin-bottom: 6px;
   }
 
   .header-divider {
@@ -88,85 +80,42 @@
     word-break: keep-all;
   }
 
-  /* Form Card */
   .form-card {
     background: var(--white);
     border-radius: 16px;
     padding: 36px 32px 40px;
     margin: 28px 0 40px;
-    box-shadow: 
-      0 1px 3px rgba(0,0,0,0.04),
-      0 8px 32px rgba(13,27,42,0.06);
+    box-shadow: 0 8px 32px rgba(13,27,42,0.06);
     border: 1px solid rgba(0,0,0,0.04);
   }
 
-  .form-group {
-    margin-bottom: 24px;
-  }
-  .form-group:last-of-type {
-    margin-bottom: 32px;
-  }
-
+  .form-group { margin-bottom: 24px; }
   .form-label {
     display: block;
     font-size: 13px;
     font-weight: 700;
     color: var(--navy);
     margin-bottom: 8px;
-    letter-spacing: 0.3px;
   }
 
-  .form-label .required {
-    color: var(--orange);
-    font-size: 12px;
-    margin-left: 4px;
-  }
+  .form-label .required { color: var(--orange); font-size: 12px; margin-left: 4px; }
 
-  .form-input,
-  .form-textarea {
+  .form-input, .form-textarea {
     width: 100%;
     padding: 14px 16px;
-    font-family: 'Noto Sans KR', sans-serif;
     font-size: 14px;
-    color: var(--gray-800);
     background: var(--gray-50);
     border: 1.5px solid var(--gray-200);
     border-radius: 10px;
     outline: none;
-    transition: all 0.25s ease;
   }
 
-  .form-input::placeholder,
-  .form-textarea::placeholder {
-    color: #bbb;
-    font-weight: 300;
-  }
+  .form-textarea { min-height: 120px; resize: vertical; }
 
-  .form-input:focus,
-  .form-textarea:focus {
-    border-color: var(--navy-light);
-    background: var(--white);
-    box-shadow: 0 0 0 3px rgba(27,58,92,0.08);
-  }
-
-  .form-textarea {
-    min-height: 120px;
-    resize: vertical;
-    line-height: 1.7;
-  }
-
-  .form-hint {
-    font-size: 11px;
-    color: var(--gray-400);
-    margin-top: 6px;
-  }
-
-  /* Submit Button */
   .submit-btn {
     display: block;
     width: 100%;
     padding: 16px 24px;
-    font-family: 'Noto Sans KR', sans-serif;
     font-size: 16px;
     font-weight: 700;
     color: var(--white);
@@ -174,236 +123,135 @@
     border: none;
     border-radius: 12px;
     cursor: pointer;
-    letter-spacing: 1px;
     transition: all 0.3s ease;
-    position: relative;
-    overflow: hidden;
   }
 
-  .submit-btn::after {
-    content: '';
-    position: absolute;
-    top: 0; left: 0; right: 0; bottom: 0;
-    background: linear-gradient(135deg, var(--orange), var(--orange-light));
-    opacity: 0;
-    transition: opacity 0.3s ease;
-    border-radius: 12px;
-  }
+  .submit-btn:hover { transform: translateY(-1px); box-shadow: 0 6px 20px rgba(13,27,42,0.25); }
 
-  .submit-btn:hover {
-    transform: translateY(-1px);
-    box-shadow: 0 6px 20px rgba(13,27,42,0.25);
-  }
-
-  .submit-btn:hover::after {
-    opacity: 1;
-  }
-
-  .submit-btn span {
-    position: relative;
-    z-index: 1;
-  }
-
-  .submit-btn:active {
-    transform: translateY(0);
-  }
-
-  /* Privacy notice */
-  .privacy-notice {
-    text-align: center;
-    font-size: 11px;
-    color: var(--gray-400);
-    line-height: 1.6;
-    margin-top: 16px;
-    word-break: keep-all;
-  }
-
-  /* Footer */
-  .footer {
-    text-align: center;
-    padding: 24px 0 48px;
-    border-top: 1px solid var(--gray-100);
-  }
-
-  .footer-brand {
-    font-size: 12px;
-    font-weight: 700;
-    color: var(--navy);
-    letter-spacing: 3px;
-    margin-bottom: 6px;
-  }
-
-  .footer-contact {
-    font-size: 11px;
-    color: var(--gray-400);
-    line-height: 1.8;
-  }
-
-  .footer-contact a {
-    color: var(--orange);
-    text-decoration: none;
-  }
-
-  /* Success state */
-  .success-message {
-    display: none;
-    text-align: center;
-    padding: 48px 20px;
-  }
-
+  .success-message { display: none; text-align: center; padding: 48px 20px; }
   .success-icon {
-    width: 64px;
-    height: 64px;
-    background: linear-gradient(135deg, var(--success), #2ecc71);
+    width: 64px; height: 64px;
+    background: var(--success);
     border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 0 auto 20px;
-    font-size: 28px;
-    color: white;
+    display: flex; align-items: center; justify-content: center;
+    margin: 0 auto 20px; font-size: 28px; color: white;
   }
 
-  .success-title {
-    font-size: 20px;
-    font-weight: 700;
-    color: var(--navy);
-    margin-bottom: 10px;
-  }
-
-  .success-desc {
-    font-size: 14px;
-    color: var(--gray-600);
-    line-height: 1.7;
-  }
-
-  /* Responsive */
-  @media (max-width: 480px) {
-    .form-card { padding: 28px 20px 32px; }
-    .header-title { font-size: 20px; }
-  }
+  .footer { text-align: center; padding: 24px 0 48px; border-top: 1px solid var(--gray-100); }
+  .footer-brand { font-size: 12px; font-weight: 700; color: var(--navy); letter-spacing: 3px; }
 </style>
 </head>
 <body>
 
 <div class="page-wrapper">
-
-  <!-- Header -->
   <div class="header">
     <div class="header-logo">
-      <svg width="48" height="52" viewBox="0 0 48 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <svg width="48" height="52" viewBox="0 0 48 52" fill="none">
         <circle cx="24" cy="20" r="14" stroke="#0d1b2a" stroke-width="1.8" fill="none"/>
-        <ellipse cx="24" cy="20" rx="14" ry="6" stroke="#0d1b2a" stroke-width="1.2" fill="none"/>
-        <ellipse cx="24" cy="20" rx="6" ry="14" stroke="#0d1b2a" stroke-width="1.2" fill="none"/>
-        <line x1="10" y1="20" x2="38" y2="20" stroke="#0d1b2a" stroke-width="1"/>
-        <text x="24" y="42" text-anchor="middle" font-family="'Noto Sans KR', sans-serif" font-size="7" font-weight="700" fill="#0d1b2a" letter-spacing="2">GLOBOS</text>
-        <text x="24" y="48" text-anchor="middle" font-family="'Noto Sans KR', sans-serif" font-size="4.5" font-weight="400" fill="#0d1b2a" letter-spacing="1.5">VIETNAM</text>
+        <text x="24" y="42" text-anchor="middle" font-family="sans-serif" font-size="7" font-weight="700" fill="#0d1b2a">GLOBOS</text>
+        <text x="24" y="48" text-anchor="middle" font-family="sans-serif" font-size="4.5" fill="#0d1b2a">VIETNAM</text>
       </svg>
     </div>
-
     <div class="header-divider"></div>
-
     <h1 class="header-title">베트남 진출 상담 문의</h1>
-    <p class="header-sub">
-      아래 양식을 작성해 주시면<br>
-      담당 컨설턴트가 24시간 내 연락드리겠습니다.
-    </p>
+    <p class="header-sub">담당 컨설턴트가 24시간 내 연락드리겠습니다.</p>
   </div>
 
-  <!-- Form -->
   <div class="form-card" id="formCard">
     <form id="consultForm" onsubmit="handleSubmit(event)">
-
-      <!-- 1. 성함 -->
       <div class="form-group">
-        <label class="form-label">
-          성함 <span class="required">(필수)</span>
-        </label>
-        <input type="text" class="form-input" placeholder="이름을 입력해 주세요" required>
+        <label class="form-label">성함 <span class="required">(필수)</span></label>
+        <input type="text" class="form-input" id="name" placeholder="이름을 입력해 주세요" required>
       </div>
-
-      <!-- 2. 직함 -->
       <div class="form-group">
-        <label class="form-label">
-          직함 <span class="required">(필수)</span>
-        </label>
-        <input type="text" class="form-input" placeholder="예: 대표이사, 사업부장, 해외사업팀장">
+        <label class="form-label">직함 <span class="required">(필수)</span></label>
+        <input type="text" class="form-input" id="job" placeholder="예: 대표이사, 사업부장" required>
       </div>
-
-      <!-- 3. 연락처 -->
       <div class="form-group">
-        <label class="form-label">
-          연락처 <span class="required">(필수)</span>
-        </label>
-        <input type="tel" class="form-input" placeholder="'-' 없이 입력해 주세요" required>
-        <p class="form-hint">예: 01012345678</p>
+        <label class="form-label">연락처 <span class="required">(필수)</span></label>
+        <input type="tel" class="form-input" id="phone" placeholder="'-' 없이 입력해 주세요" required>
       </div>
-
-      <!-- 4. 이메일 -->
       <div class="form-group">
-        <label class="form-label">
-          이메일 <span class="required">(필수)</span>
-        </label>
-        <input type="email" class="form-input" placeholder="example@company.com" required>
+        <label class="form-label">이메일 <span class="required">(필수)</span></label>
+        <input type="email" class="form-input" id="email" placeholder="example@company.com" required>
       </div>
-
-      <!-- 5. 운영브랜드 -->
       <div class="form-group">
-        <label class="form-label">
-          운영 브랜드 <span class="required">(필수)</span>
-        </label>
-        <input type="text" class="form-input" placeholder="현재 운영 중인 브랜드명을 입력해 주세요">
-        <p class="form-hint">복수 브랜드의 경우 콤마(,)로 구분해 주세요</p>
+        <label class="form-label">운영 브랜드 <span class="required">(필수)</span></label>
+        <input type="text" class="form-input" id="brand" placeholder="브랜드명을 입력해 주세요" required>
       </div>
-
-      <!-- 6. 문의사항 -->
       <div class="form-group">
-        <label class="form-label">
-          문의사항
-        </label>
-        <textarea class="form-textarea" placeholder="궁금하신 점이나 요청사항을 자유롭게 적어 주세요.&#10;&#10;예: 외식 브랜드 호치민 진출 검토 중입니다. 법인 설립부터 1호점 오픈까지 예상 비용과 일정이 궁금합니다."></textarea>
+        <label class="form-label">문의사항</label>
+        <textarea class="form-textarea" id="message" placeholder="요청사항을 적어주세요."></textarea>
       </div>
-
-      <!-- Submit -->
-      <button type="submit" class="submit-btn">
+      <button type="submit" class="submit-btn" id="submitBtn">
         <span>상담 신청하기</span>
       </button>
-
-      <p class="privacy-notice">
-        입력하신 정보는 상담 목적으로만 사용되며,<br>
-        제3자에게 제공되지 않습니다.
-      </p>
     </form>
 
-    <!-- Success Message -->
     <div class="success-message" id="successMsg">
       <div class="success-icon">✓</div>
-      <h2 class="success-title">상담 신청이 완료되었습니다</h2>
-      <p class="success-desc">
-        담당 컨설턴트가 영업일 기준 24시간 내<br>
-        입력하신 연락처로 연락드리겠습니다.<br><br>
-        감사합니다.
-      </p>
+      <h2 class="success-title">신청이 완료되었습니다</h2>
+      <p class="success-desc">확인 후 신속히 연락드리겠습니다.</p>
     </div>
   </div>
 
-  <!-- Footer -->
   <div class="footer">
     <div class="footer-brand">GLOBOS VIETNAM</div>
-    <div class="footer-contact">
-      15년 한-베 비즈니스 경험 | 다업종 현지 운영 실적<br>
-      Ho Chi Minh City, Vietnam
-    </div>
+    <p style="font-size: 11px; color: #999; margin-top: 8px;">Ho Chi Minh City, Vietnam</p>
   </div>
-
 </div>
 
 <script>
-function handleSubmit(e) {
+async function handleSubmit(e) {
   e.preventDefault();
-  document.getElementById('consultForm').style.display = 'none';
-  document.getElementById('successMsg').style.display = 'block';
-  document.getElementById('formCard').scrollIntoView({ behavior: 'smooth', block: 'start' });
+  const btn = document.getElementById('submitBtn');
+  btn.disabled = true;
+  btn.innerText = "전송 중...";
+
+  const formData = {
+    name: document.getElementById('name').value,
+    job: document.getElementById('job').value,
+    phone: document.getElementById('phone').value,
+    email: document.getElementById('email').value,
+    brand: document.getElementById('brand').value,
+    message: document.getElementById('message').value
+  };
+
+  const slackMessage = {
+    text: "🚀 *신규 베트남 진출 상담 신청 (GLOBOS VN)*",
+    attachments: [{
+      color: "#ff6b35",
+      title: `${formData.name} ${formData.job}님 신청`,
+      fields: [
+        { title: "연락처", value: formData.phone, short: true },
+        { title: "이메일", value: formData.email, short: true },
+        { title: "브랜드", value: formData.brand, short: false },
+        { title: "문의내용", value: formData.message, short: false }
+      ],
+      footer: "수신: ahc0403, mobum7, pass_3000",
+      ts: Math.floor(Date.now() / 1000)
+    }]
+  };
+
+  // 대표님께서 발급받으신 Webhook URL 적용
+  const SLACK_WEBHOOK_URL = 'https://hooks.slack.com/services/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';
+
+  try {
+    await fetch(SLACK_WEBHOOK_URL, {
+      method: 'POST',
+      body: JSON.stringify(slackMessage),
+      mode: 'no-cors'
+    });
+
+    document.getElementById('consultForm').style.display = 'none';
+    document.getElementById('successMsg').style.display = 'block';
+    document.getElementById('formCard').scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+  } catch (error) {
+    alert('전송 중 오류가 발생했습니다. 잠시 후 다시 시도해 주세요.');
+    btn.disabled = false;
+    btn.innerText = "상담 신청하기";
+  }
 }
 </script>
 </body>
