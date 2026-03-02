@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GLOBOS Vietnam | 상담 문의</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #0d1b2a;
+    --navy-mid: #1b3a5c;
+    --navy-light: #2a5f8f;
+    --orange: #ff6b35;
+    --orange-light: #ff8f35;
+    --white: #ffffff;
+    --gray-50: #f8f9fa;
+    --gray-100: #f0f1f3;
+    --gray-200: #e2e4e8;
+    --gray-400: #999;
+    --gray-600: #666;
+    --gray-800: #1a1a1a;
+    --success: #27ae60;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Noto Sans KR', sans-serif;
+    background: var(--gray-50);
+    color: var(--gray-800);
+    min-height: 100vh;
+  }
+
+  /* Background pattern */
+  body::before {
+    content: '';
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: 
+      radial-gradient(circle at 15% 20%, rgba(13,27,42,0.03) 0%, transparent 50%),
+      radial-gradient(circle at 85% 80%, rgba(255,107,53,0.04) 0%, transparent 50%);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .page-wrapper {
+    position: relative;
+    z-index: 1;
+    max-width: 640px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+
+  /* Header */
+  .header {
+    text-align: center;
+    padding: 48px 0 12px;
+  }
+
+  .header-logo img {
+    width: 100px;
+    height: auto;
+    margin-bottom: 6px;
+  }
+
+  .header-divider {
+    width: 40px;
+    height: 3px;
+    background: linear-gradient(90deg, var(--orange), var(--orange-light));
+    margin: 20px auto;
+    border-radius: 2px;
+  }
+
+  .header-title {
+    font-size: 24px;
+    font-weight: 900;
+    color: var(--navy);
+    line-height: 1.4;
+    margin-bottom: 10px;
+    word-break: keep-all;
+  }
+
+  .header-sub {
+    font-size: 14px;
+    font-weight: 300;
+    color: var(--gray-600);
+    line-height: 1.7;
+    word-break: keep-all;
+  }
+
+  /* Form Card */
+  .form-card {
+    background: var(--white);
+    border-radius: 16px;
+    padding: 36px 32px 40px;
+    margin: 28px 0 40px;
+    box-shadow: 
+      0 1px 3px rgba(0,0,0,0.04),
+      0 8px 32px rgba(13,27,42,0.06);
+    border: 1px solid rgba(0,0,0,0.04);
+  }
+
+  .form-group {
+    margin-bottom: 24px;
+  }
+  .form-group:last-of-type {
+    margin-bottom: 32px;
+  }
+
+  .form-label {
+    display: block;
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 8px;
+    letter-spacing: 0.3px;
+  }
+
+  .form-label .required {
+    color: var(--orange);
+    font-size: 12px;
+    margin-left: 4px;
+  }
+
+  .form-input,
+  .form-textarea {
+    width: 100%;
+    padding: 14px 16px;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 14px;
+    color: var(--gray-800);
+    background: var(--gray-50);
+    border: 1.5px solid var(--gray-200);
+    border-radius: 10px;
+    outline: none;
+    transition: all 0.25s ease;
+  }
+
+  .form-input::placeholder,
+  .form-textarea::placeholder {
+    color: #bbb;
+    font-weight: 300;
+  }
+
+  .form-input:focus,
+  .form-textarea:focus {
+    border-color: var(--navy-light);
+    background: var(--white);
+    box-shadow: 0 0 0 3px rgba(27,58,92,0.08);
+  }
+
+  .form-textarea {
+    min-height: 120px;
+    resize: vertical;
+    line-height: 1.7;
+  }
+
+  .form-hint {
+    font-size: 11px;
+    color: var(--gray-400);
+    margin-top: 6px;
+  }
+
+  /* Submit Button */
+  .submit-btn {
+    display: block;
+    width: 100%;
+    padding: 16px 24px;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--white);
+    background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 100%);
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .submit-btn::after {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: linear-gradient(135deg, var(--orange), var(--orange-light));
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    border-radius: 12px;
+  }
+
+  .submit-btn:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 6px 20px rgba(13,27,42,0.25);
+  }
+
+  .submit-btn:hover::after {
+    opacity: 1;
+  }
+
+  .submit-btn span {
+    position: relative;
+    z-index: 1;
+  }
+
+  .submit-btn:active {
+    transform: translateY(0);
+  }
+
+  /* Privacy notice */
+  .privacy-notice {
+    text-align: center;
+    font-size: 11px;
+    color: var(--gray-400);
+    line-height: 1.6;
+    margin-top: 16px;
+    word-break: keep-all;
+  }
+
+  /* Footer */
+  .footer {
+    text-align: center;
+    padding: 24px 0 48px;
+    border-top: 1px solid var(--gray-100);
+  }
+
+  .footer-brand {
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--navy);
+    letter-spacing: 3px;
+    margin-bottom: 6px;
+  }
+
+  .footer-contact {
+    font-size: 11px;
+    color: var(--gray-400);
+    line-height: 1.8;
+  }
+
+  .footer-contact a {
+    color: var(--orange);
+    text-decoration: none;
+  }
+
+  /* Success state */
+  .success-message {
+    display: none;
+    text-align: center;
+    padding: 48px 20px;
+  }
+
+  .success-icon {
+    width: 64px;
+    height: 64px;
+    background: linear-gradient(135deg, var(--success), #2ecc71);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 20px;
+    font-size: 28px;
+    color: white;
+  }
+
+  .success-title {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 10px;
+  }
+
+  .success-desc {
+    font-size: 14px;
+    color: var(--gray-600);
+    line-height: 1.7;
+  }
+
+  /* Responsive */
+  @media (max-width: 480px) {
+    .form-card { padding: 28px 20px 32px; }
+    .header-title { font-size: 20px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="page-wrapper">
+
+  <!-- Header -->
+  <div class="header">
+    <div class="header-logo">
+      <svg width="48" height="52" viewBox="0 0 48 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="24" cy="20" r="14" stroke="#0d1b2a" stroke-width="1.8" fill="none"/>
+        <ellipse cx="24" cy="20" rx="14" ry="6" stroke="#0d1b2a" stroke-width="1.2" fill="none"/>
+        <ellipse cx="24" cy="20" rx="6" ry="14" stroke="#0d1b2a" stroke-width="1.2" fill="none"/>
+        <line x1="10" y1="20" x2="38" y2="20" stroke="#0d1b2a" stroke-width="1"/>
+        <text x="24" y="42" text-anchor="middle" font-family="'Noto Sans KR', sans-serif" font-size="7" font-weight="700" fill="#0d1b2a" letter-spacing="2">GLOBOS</text>
+        <text x="24" y="48" text-anchor="middle" font-family="'Noto Sans KR', sans-serif" font-size="4.5" font-weight="400" fill="#0d1b2a" letter-spacing="1.5">VIETNAM</text>
+      </svg>
+    </div>
+
+    <div class="header-divider"></div>
+
+    <h1 class="header-title">베트남 진출 상담 문의</h1>
+    <p class="header-sub">
+      아래 양식을 작성해 주시면<br>
+      담당 컨설턴트가 24시간 내 연락드리겠습니다.
+    </p>
+  </div>
+
+  <!-- Form -->
+  <div class="form-card" id="formCard">
+    <form id="consultForm" onsubmit="handleSubmit(event)">
+
+      <!-- 1. 성함 -->
+      <div class="form-group">
+        <label class="form-label">
+          성함 <span class="required">(필수)</span>
+        </label>
+        <input type="text" class="form-input" placeholder="이름을 입력해 주세요" required>
+      </div>
+
+      <!-- 2. 직함 -->
+      <div class="form-group">
+        <label class="form-label">
+          직함 <span class="required">(필수)</span>
+        </label>
+        <input type="text" class="form-input" placeholder="예: 대표이사, 사업부장, 해외사업팀장">
+      </div>
+
+      <!-- 3. 연락처 -->
+      <div class="form-group">
+        <label class="form-label">
+          연락처 <span class="required">(필수)</span>
+        </label>
+        <input type="tel" class="form-input" placeholder="'-' 없이 입력해 주세요" required>
+        <p class="form-hint">예: 01012345678</p>
+      </div>
+
+      <!-- 4. 이메일 -->
+      <div class="form-group">
+        <label class="form-label">
+          이메일 <span class="required">(필수)</span>
+        </label>
+        <input type="email" class="form-input" placeholder="example@company.com" required>
+      </div>
+
+      <!-- 5. 운영브랜드 -->
+      <div class="form-group">
+        <label class="form-label">
+          운영 브랜드 <span class="required">(필수)</span>
+        </label>
+        <input type="text" class="form-input" placeholder="현재 운영 중인 브랜드명을 입력해 주세요">
+        <p class="form-hint">복수 브랜드의 경우 콤마(,)로 구분해 주세요</p>
+      </div>
+
+      <!-- 6. 문의사항 -->
+      <div class="form-group">
+        <label class="form-label">
+          문의사항
+        </label>
+        <textarea class="form-textarea" placeholder="궁금하신 점이나 요청사항을 자유롭게 적어 주세요.&#10;&#10;예: 외식 브랜드 호치민 진출 검토 중입니다. 법인 설립부터 1호점 오픈까지 예상 비용과 일정이 궁금합니다."></textarea>
+      </div>
+
+      <!-- Submit -->
+      <button type="submit" class="submit-btn">
+        <span>상담 신청하기</span>
+      </button>
+
+      <p class="privacy-notice">
+        입력하신 정보는 상담 목적으로만 사용되며,<br>
+        제3자에게 제공되지 않습니다.
+      </p>
+    </form>
+
+    <!-- Success Message -->
+    <div class="success-message" id="successMsg">
+      <div class="success-icon">✓</div>
+      <h2 class="success-title">상담 신청이 완료되었습니다</h2>
+      <p class="success-desc">
+        담당 컨설턴트가 영업일 기준 24시간 내<br>
+        입력하신 연락처로 연락드리겠습니다.<br><br>
+        감사합니다.
+      </p>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <div class="footer">
+    <div class="footer-brand">GLOBOS VIETNAM</div>
+    <div class="footer-contact">
+      15년 한-베 비즈니스 경험 | 다업종 현지 운영 실적<br>
+      Ho Chi Minh City, Vietnam
+    </div>
+  </div>
+
+</div>
+
+<script>
+function handleSubmit(e) {
+  e.preventDefault();
+  document.getElementById('consultForm').style.display = 'none';
+  document.getElementById('successMsg').style.display = 'block';
+  document.getElementById('formCard').scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+</script>
+</body>
+</html>
